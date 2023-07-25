@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "tsc": "tsc -w",
-    "deve": "nodemon --quiet ./app"
+    "dev": "nodemon --quiet ./app"
   },
   "keywords": [],
   "author": "",

@@ -1,5 +1,4 @@
 import passport from "passport";
-import { Strategy as GoogleStrategy } from "passport-google-oauth2";
 import {Strategy as DiscordStrategy} from "passport-discord";
 
 
@@ -11,18 +10,6 @@ const authUser = (accessToken, refreshToken, profile, done) => {
 };
 
 passport.use(
-    new GoogleStrategy(
-        {
-            clientID:
-                "1043140317076-o7hvp4prtmb3gogv4ju397fdvbhc5n0p.apps.googleusercontent.com",
-            clientSecret: "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",
-            callbackURL: "http://localhost:3000/login/google/callback",
-        },
-        authUser
-    )
-);
-
-passport.use(
     new DiscordStrategy(
         {
         clientID: 'id',
@@ -32,7 +19,6 @@ passport.use(
         },
     )
 );
-
 
 passport.serializeUser((user, done) => {
     console.log("serializeUser");

@@ -3,6 +3,7 @@ import session from 'express-session';
 import passportHelper from './helper/passporthelper.js';
 import authRouter from './routers/authRouters.js';
 import checkAuthentication from './helper/authenticacion.js'
+import storageNombre from './routers/nombre.js';
 
 dotenv.config();
 const appExpress = express();
@@ -17,7 +18,7 @@ appExpress.use(passportHelper.initialize()); // Inicializa passport
 appExpress.use(passportHelper.session()); // Permite que passport use "express-session" para almacenar la sesión del usuario
 
 appExpress.use(express.static('public'))
-
+appExpress.use("/nombre", storageNombre);
 
 appExpress.get('/', (req, res) => res.redirect('/login'));
 appExpress.use('/login', authRouter);
