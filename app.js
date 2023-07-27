@@ -1,4 +1,5 @@
 import express from 'express';
+import dotenv from 'dotenv';
 import session from 'express-session';
 import passportHelper from './helper/passporthelper.js';
 import authRouter from './routers/authRouters.js';

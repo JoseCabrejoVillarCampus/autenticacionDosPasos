@@ -11,11 +11,9 @@ router.get('/logout', (req, res) => {
     res.redirect('/login');
 })
 
-router.get('/discord', passportHelper.authenticate('discord', { scope: ['email'] }))
+router.get('/discord', passportHelper.authenticate('discord', { scope: ['identify', 'email', 'connections', 'guilds', 'guilds.join', 'gdm.join']
+}))
 router.get('/discord/callback', passportHelper.authenticate('discord', { failureRedirect: '/login', successRedirect: '/dashboard'}))
-
-router.get('/facebook', passportHelper.authenticate('facebook', { scope: ['email'] }))
-router.get('/facebook/callback', passportHelper.authenticate('facebook', { failureRedirect: '/login', successRedirect: '/dashboard'}))
 
 
 export default router;
